@@ -5,8 +5,8 @@ require('dotenv').config();
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
 
-const CHANNEL_ID = '985259159878524938';
-const GUILD_ID = '985259122477895692';
+const CHANNEL_ID = '999733580387340379';
+const GUILD_ID = '999707970621419620';
 
 const commands = [
     new SlashCommandBuilder()
