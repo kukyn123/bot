@@ -23,7 +23,7 @@ rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, GUILD_ID), { bod
 client.once('ready', () => {
     console.log(`✅ Bot je online jako ${client.user.tag}`);
 
-    cron.schedule('13 23 * * *', async () => {
+    cron.schedule('00 10 * * *', async () => {
         const channel = await client.channels.fetch(CHANNEL_ID);
         if (channel) {
             const randomNumber = (Math.random() * (999.999 - 99.9) + 99.9).toFixed(3);
