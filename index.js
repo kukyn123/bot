@@ -5,12 +5,12 @@ require('dotenv').config();
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
 
-const CHANNEL_ID = 'TVŮJ_CHANNEL_ID';
-const GUILD_ID = 'TVŮJ_GUILD_ID';
+const CHANNEL_ID = '985259159878524938';
+const GUILD_ID = '985259122477895692';
 
 const commands = [
     new SlashCommandBuilder()
-        .setName('cislo')
+        .setName('enzo')
         .setDescription('Vygeneruje nové číslo a pingne @everyone')
 ].map(command => command.toJSON());
 
@@ -26,7 +26,7 @@ client.once('ready', () => {
         const channel = await client.channels.fetch(CHANNEL_ID);
         if (channel) {
             const randomNumber = (Math.random() * (999 - 100) + 100).toFixed(1);
-            channel.send(`Dnešní číslo: **${randomNumber}**`);
+            channel.send(`#Nová vysílačka: **${randomNumber}**`);
         }
     }, {
         timezone: "Europe/Prague"
@@ -36,11 +36,11 @@ client.once('ready', () => {
 client.on('interactionCreate', async interaction => {
     if (!interaction.isChatInputCommand()) return;
 
-    if (interaction.commandName === 'cislo') {
+    if (interaction.commandName === 'enzo') {
         const channel = await client.channels.fetch(CHANNEL_ID);
         if (channel) {
             const randomNumber = (Math.random() * (999 - 100) + 100).toFixed(1);
-            await channel.send(`@everyone\nRuční generace čísla: **${randomNumber}**`);
+            await channel.send(`@everyone\nEnzo v pici: **${randomNumber}**`);
             await interaction.reply({ content: '✅ Číslo bylo vygenerováno a odesláno.', ephemeral: true });
         } else {
             await interaction.reply({ content: '❌ Kanál nenalezen.', ephemeral: true });
