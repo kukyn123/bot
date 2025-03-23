@@ -22,11 +22,11 @@ rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, GUILD_ID), { bod
 client.once('ready', () => {
     console.log(`✅ Bot je online jako ${client.user.tag}`);
 
-    cron.schedule('58 22 * * *', async () => {
+    cron.schedule('02 23 * * *', async () => {
         const channel = await client.channels.fetch(CHANNEL_ID);
         if (channel) {
             const randomNumber = (Math.random() * (999 - 100) + 100).toFixed(1);
-            channel.send(`#Nová vysílačka: **${randomNumber}**`);
+            channel.send(`# Nová vysílačka: **${randomNumber}**`);
         }
     }, {
         timezone: "Europe/Prague"
